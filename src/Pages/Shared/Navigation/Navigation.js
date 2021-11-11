@@ -33,11 +33,10 @@ const Navigation = () => {
                   style={{
                      textDecoration: "none",
                      color: "white",
-                     marginRight: "4rem",
                   }}
-                  to="/explore"
+                  to="/moreVehicles"
                >
-                  <Button color="inherit">Explore</Button>
+                  <Button color="inherit">More Vehicles</Button>
                </Link>
                {user?.email ? (
                   <Box>

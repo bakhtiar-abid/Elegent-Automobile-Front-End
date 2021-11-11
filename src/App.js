@@ -5,7 +5,9 @@ import Home from "./Pages/Home/Home/Home";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Login from "./Pages/Login/Login/Login";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
-import Explore from "./Pages/Home/Explore/Explore";
+import MoreVehicles from "./Pages/Home/MoreVehicles/MoreVehicles";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import SingleVehicle from "./Pages/Home/SingleVehicle/SingleVehicle";
 
 function App() {
    return (
@@ -23,9 +25,12 @@ function App() {
                   <Route exact path="/home">
                      <Home></Home>
                   </Route>
-                  <Route exact path="/explore">
-                     <Explore></Explore>
+                  <Route exact path="/moreVehicles">
+                     <MoreVehicles></MoreVehicles>
                   </Route>
+                  <PrivateRoute exact path="/vehicle/:Id">
+                     <SingleVehicle></SingleVehicle>
+                  </PrivateRoute>
                   <Route exact path="/login">
                      <Login></Login>
                   </Route>

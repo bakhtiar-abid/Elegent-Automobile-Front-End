@@ -38,15 +38,29 @@ const Vehicle = ({ item }) => {
             />
             <CardContent>
                <Typography gutterBottom variant="h5" component="div">
-                  {name}
+                  Name: {name}
                </Typography>
                <Typography variant="body2" color="text.secondary">
-                  {overview.slice(0, 160)}
+                  Overview: {overview.slice(0, 150)}
+               </Typography>
+               <Typography
+                  variant="h6"
+                  component="div"
+                  style={{ marginTop: "5px" }}
+               >
+                  Price: ${price}
                </Typography>
             </CardContent>
-            <CardActions>
-               <Button size="small">Share</Button>
-               <Button size="small">Learn More</Button>
+            <CardActions
+               style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+               }}
+            >
+               <Button variant="contained" size="small">
+                  Purchase
+               </Button>
             </CardActions>
          </Card>
       </Grid>
