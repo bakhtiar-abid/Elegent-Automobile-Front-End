@@ -3,12 +3,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home/Home";
 
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import Login from "./Pages/Login/Login/Login";
+import Navigation from "./Pages/Shared/Navigation/Navigation";
 
 function App() {
    return (
       <div className="App">
          <AuthProvider>
             <Router>
+               <Navigation></Navigation>
                <Switch>
                   {/* <PrivateRoute path="/appointment">
                      <Appointment />
@@ -16,18 +19,18 @@ function App() {
                   {/* <PrivateRoute path="/dashboard">
                      <Dashboard />
                   </PrivateRoute> */}
-                  <Route path="/">
+                  <Route exact path="/home">
                      <Home></Home>
                   </Route>
-                  {/* <Route path="/login">
-                     <Login />
-                  </Route> */}
+                  <Route exact path="/login">
+                     <Login></Login>
+                  </Route>
                   {/* <Route path="/register">
                      <Register />
                   </Route> */}
-                  {/* <Route exact path="/">
+                  <Route exact path="/">
                      <Home />
-                  </Route> */}
+                  </Route>
                </Switch>
             </Router>
          </AuthProvider>
