@@ -13,7 +13,7 @@ const Navigation = () => {
    const { user, logout } = useAuth();
    return (
       <Box sx={{ flexGrow: 1 }}>
-         <AppBar position="static">
+         <AppBar enableColorOnDark position="static">
             <Toolbar>
                <IconButton
                   size="large"
@@ -35,9 +35,9 @@ const Navigation = () => {
                      color: "white",
                      marginRight: "4rem",
                   }}
-                  to="/appointment"
+                  to="/explore"
                >
-                  <Button color="inherit">Dash Board</Button>
+                  <Button color="inherit">Explore</Button>
                </Link>
                {user?.email ? (
                   <Box>

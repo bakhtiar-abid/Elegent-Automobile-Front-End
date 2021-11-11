@@ -5,6 +5,7 @@ import Home from "./Pages/Home/Home/Home";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Login from "./Pages/Login/Login/Login";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
+import Explore from "./Pages/Home/Explore/Explore";
 
 function App() {
    return (
@@ -21,6 +22,9 @@ function App() {
                   </PrivateRoute> */}
                   <Route exact path="/home">
                      <Home></Home>
+                  </Route>
+                  <Route exact path="/explore">
+                     <Explore></Explore>
                   </Route>
                   <Route exact path="/login">
                      <Login></Login>

@@ -17,12 +17,23 @@ const Vehicles = () => {
       <Box sx={{ flexGrow: 1 }}>
          <Container>
             <Typography
-               sx={{ fontWeight: 500, m: 2, color: "success.main" }}
+               sx={{ fontWeight: 500, m: 2, color: "info.light" }}
                variant="h6"
                component="div"
             >
                FEATURED VEHICLES
             </Typography>
+            <Box
+               style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+               }}
+            >
+               <div
+                  style={{ borderBottom: "4px solid red", width: "9%" }}
+               ></div>
+            </Box>
             <Typography
                sx={{ fontWeight: 500, m: 5 }}
                variant="h4"
