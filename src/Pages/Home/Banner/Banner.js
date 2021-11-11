@@ -40,7 +40,7 @@ const Banner = () => {
                   <Typography
                      style={{
                         color: "white",
-                        fontSize: "4rem",
+                        fontSize: "3rem",
                         fontWeight: "600",
                      }}
                      variant="h3"
