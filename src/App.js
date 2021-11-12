@@ -8,6 +8,7 @@ import Navigation from "./Pages/Shared/Navigation/Navigation";
 import MoreVehicles from "./Pages/Home/MoreVehicles/MoreVehicles";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import SingleVehicle from "./Pages/Home/SingleVehicle/SingleVehicle";
+import Register from "./Pages/Login/Register/Register";
 
 function App() {
    return (
@@ -34,9 +35,10 @@ function App() {
                   <Route exact path="/login">
                      <Login></Login>
                   </Route>
-                  {/* <Route path="/register">
-                     <Register />
-                  </Route> */}
+
+                  <Route exact path="/register">
+                     <Register></Register>
+                  </Route>
                   <Route exact path="/">
                      <Home />
                   </Route>

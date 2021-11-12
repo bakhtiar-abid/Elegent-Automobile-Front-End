@@ -91,6 +91,7 @@ const MoreVehicles = () => {
                      xs={4}
                      sm={4}
                      md={4}
+                     key={moreVehicle._id}
                   >
                      <Card
                         sx={{ maxWidth: 345 }}

@@ -8,13 +8,15 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
+import GoogleIcon from "@mui/icons-material/Google";
 
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "./../../../hooks/useAuth";
 
 const Login = () => {
    const [loginData, setLoginData] = useState({});
-   const { signInWithGoogle, isLoading, loginUser } = useAuth();
+   const { signInWithGoogle, isLoading, loginUser, user, authError } =
+      useAuth();
 
    const location = useLocation();
    const history = useHistory();
@@ -35,8 +37,22 @@ const Login = () => {
       signInWithGoogle(location, history);
    };
    return (
-      <Container>
-         <Grid container spacing={2}>
+      <Container
+         sx={{
+            boxShadow: 3,
+            margin: "100px",
+            padding: "50px",
+         }}
+      >
+         <Grid
+            container
+            spacing={2}
+            sx={{
+               display: "flex",
+               justifyContent: "center",
+               alignItems: "center",
+            }}
+         >
             <Grid item sx={{ mt: 8 }} xs={12} md={6}>
                <Typography variant="body1" gutterBottom>
                   Login
@@ -70,19 +86,17 @@ const Login = () => {
                   <NavLink style={{ textDecoration: "none" }} to="/register">
                      <Button variant="text">New User? Please Register</Button>
                   </NavLink>
-                  {/* {isLoading && <CircularProgress />}
+                  {isLoading && <CircularProgress />}
                   {user?.email && (
                      <Alert severity="success">Login successfully!</Alert>
                   )}
-                  {authError && <Alert severity="error">{authError}</Alert>} */}
+                  {authError && <Alert severity="error">{authError}</Alert>}
                </form>
-               <p>------------------------</p>
+               <br />
                <Button onClick={handleGoogleSignIn} variant="contained">
-                  Google Sign In
+                  <GoogleIcon style={{ marginRight: "px" }}></GoogleIcon> Google
+                  Sign In
                </Button>
-            </Grid>
-            <Grid item xs={12} md={6}>
-               {/* <img style={{ width: "100%" }} src={login} alt="" /> */}
             </Grid>
          </Grid>
       </Container>

@@ -115,7 +115,7 @@ const useFirebase = () => {
 
    const saveUser = (email, displayName, method) => {
       const user = { email, displayName };
-      fetch("https://stark-caverns-04377.herokuapp.com/users", {
+      fetch("https://obscure-refuge-59992.herokuapp.com/users", {
          method: method,
          headers: {
             "content-type": "application/json",
