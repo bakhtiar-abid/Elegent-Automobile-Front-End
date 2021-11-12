@@ -9,7 +9,7 @@ const Vehicles = () => {
    const [vehicles, setVehicles] = useState([]);
 
    useEffect(() => {
-      fetch("https://obscure-refuge-59992.herokuapp.com/orders")
+      fetch("https://obscure-refuge-59992.herokuapp.com/vehicles/")
          .then((res) => res.json())
          .then((data) => setVehicles(data));
    }, []);

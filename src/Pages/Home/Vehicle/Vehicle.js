@@ -61,7 +61,10 @@ const Vehicle = ({ item }) => {
                }}
             >
                <Box>
-                  <Link to={`/vehicle/${_id}`}>
+                  <Link
+                     style={{ textDecoration: "none" }}
+                     to={`/vehicle/${_id}`}
+                  >
                      <Button variant="contained" size="small">
                         Purchase
                      </Button>
@@ -74,24 +77,3 @@ const Vehicle = ({ item }) => {
 };
 
 export default Vehicle;
-
-//  <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
-//     <CardMedia
-//        className={vehicleHover}
-//        component="img"
-//        style={{ width: "auto", height: "150px", margin: "0 auto" }}
-//        image={img}
-//        alt="green iguana"
-//     />
-//     <CardContent>
-//        <Typography variant="h6" component="div">
-//           Name: {name}
-//        </Typography>
-//        <Typography variant="body2" color="text.secondary">
-//           Overview: {overview.slice(0, 150)}...
-//        </Typography>
-//        <Typography variant="h6" component="div">
-//           Price: ${price}
-//        </Typography>
-//     </CardContent>
-//  </Card>;

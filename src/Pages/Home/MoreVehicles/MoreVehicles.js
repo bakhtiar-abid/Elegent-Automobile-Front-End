@@ -27,7 +27,7 @@ const MoreVehicles = () => {
    console.log(moreVehicles);
 
    useEffect(() => {
-      fetch("https://obscure-refuge-59992.herokuapp.com/orders")
+      fetch("https://obscure-refuge-59992.herokuapp.com/vehicles/")
          .then((res) => res.json())
          .then((data) => setmoreVehicles(data));
    }, []);
@@ -114,7 +114,10 @@ const MoreVehicles = () => {
                            }}
                         >
                            <Box>
-                              <Link to={`/vehicle/${moreVehicle?._id}`}>
+                              <Link
+                                 style={{ textDecoration: "none" }}
+                                 to={`/vehicle/${moreVehicle?._id}`}
+                              >
                                  <Button variant="contained" size="small">
                                     Order By Now
                                  </Button>
