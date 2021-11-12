@@ -7,9 +7,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useEffect } from "react";
+import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const useStyle = makeStyles({
    vehicleHover: {
@@ -23,13 +25,18 @@ const useStyle = makeStyles({
 
 const MoreVehicles = () => {
    const { vehicleHover } = useStyle();
+   const [isLoading, setIsLoading] = useState(false);
    const [moreVehicles, setmoreVehicles] = React.useState([]);
    console.log(moreVehicles);
 
    useEffect(() => {
+      setIsLoading(true);
       fetch("https://obscure-refuge-59992.herokuapp.com/vehicles/")
          .then((res) => res.json())
-         .then((data) => setmoreVehicles(data));
+         .then((data) => {
+            setmoreVehicles(data);
+            setIsLoading(false);
+         });
    }, []);
 
    return (
@@ -52,6 +59,19 @@ const MoreVehicles = () => {
                style={{ borderBottom: "4px solid orange", width: "10%" }}
             ></div>
          </Box>
+         {isLoading ? (
+            <Box
+               sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+               }}
+            >
+               <CircularProgress />
+            </Box>
+         ) : (
+            ""
+         )}
          <Grid
             container
             spacing={{ xs: 2, md: 3 }}

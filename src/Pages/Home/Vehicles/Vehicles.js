@@ -4,14 +4,20 @@ import { Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import React, { useState, useEffect } from "react";
 import Vehicle from "./../Vehicle/Vehicle";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Vehicles = () => {
    const [vehicles, setVehicles] = useState([]);
+   const [isLoading, setIsLoading] = useState(false);
 
    useEffect(() => {
+      setIsLoading(true);
       fetch("https://obscure-refuge-59992.herokuapp.com/vehicles/")
          .then((res) => res.json())
-         .then((data) => setVehicles(data));
+         .then((data) => {
+            setVehicles(data);
+            setIsLoading(false);
+         });
    }, []);
    return (
       <Box sx={{ flexGrow: 1 }}>
@@ -41,6 +47,19 @@ const Vehicles = () => {
             >
                See What's Popular
             </Typography>
+            {isLoading ? (
+               <Box
+                  sx={{
+                     display: "flex",
+                     justifyContent: "center",
+                     alignItems: "center",
+                  }}
+               >
+                  <CircularProgress />
+               </Box>
+            ) : (
+               ""
+            )}
             <Grid
                container
                spacing={{ xs: 2, md: 3 }}

@@ -124,6 +124,7 @@ const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
                         defaultValue=""
                         placeholder="Your Phone"
                         size="small"
+                        required
                      />
                   </p>
 
@@ -137,6 +138,7 @@ const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
                         defaultValue=""
                         placeholder="Your Address"
                         size="small"
+                        required
                      />
                   </p>
                   <p>

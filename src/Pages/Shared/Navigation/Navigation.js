@@ -56,9 +56,27 @@ const Navigation = () => {
                      >
                         <Button color="inherit">Dashboard</Button>
                      </NavLink>
-                     <Button onClick={logout} color="inherit">
-                        Logout
-                     </Button>
+                     <a
+                        href=""
+                        style={{ textDecoration: "none", color: "white" }}
+                     >
+                        <span
+                           style={{
+                              textDecoration: "none",
+                              color: "white",
+                              textWeight: "0.9em",
+                           }}
+                        >
+                           {user?.displayName}
+                        </span>{" "}
+                        <Button
+                           style={{ textDecoration: "none", color: "white" }}
+                           onClick={logout}
+                           color="inherit"
+                        >
+                           Logout
+                        </Button>{" "}
+                     </a>
                   </Box>
                ) : (
                   <NavLink
