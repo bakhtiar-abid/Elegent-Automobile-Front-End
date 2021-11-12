@@ -8,10 +8,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import useAuth from "./../../../hooks/useAuth";
 import Button from "@mui/material/Button";
+import swal from "sweetalert";
 
 const MyOrders = () => {
    const { user, token } = useAuth();
    const [orders, setOrders] = useState([]);
+   const [control, setConrol] = useState(false);
 
    useEffect(() => {
       const url = `https://obscure-refuge-59992.herokuapp.com/placeorder/${user?.email}`;
@@ -22,20 +24,39 @@ const MyOrders = () => {
       })
          .then((res) => res.json())
          .then((data) => setOrders(data));
-   }, [user?.email, token]);
+   }, [user?.email, control, token]);
 
-   const handleDeleteOrder = (id) => {
-      const url = `https://obscure-refuge-59992.herokuapp.com/placeorder/${id}`;
-      fetch(url, {
-         method: "DELETE",
-         headers: {
-            authorization: `Bearer ${token}`,
-         },
-      })
-         .then((res) => res.json())
-         .then((data) => {
-            setOrders(orders.filter((order) => order._id !== id));
-         });
+   const handleDelete = (id) => {
+      swal({
+         title: "Are you sure?",
+         text: "Once cancelled, you will not be able to recover this selected file!",
+         icon: "warning",
+         buttons: true,
+         dangerMode: true,
+      }).then((willDelete) => {
+         if (willDelete) {
+            fetch(`http://localhost:5000/deleorder/${id}`, {
+               method: "DELETE",
+               headers: {
+                  authorization: `Bearer ${token}`,
+                  "content-type": "application/json",
+               },
+            })
+               .then((res) => res.json())
+               .then((data) => {
+                  if (data.deletedCount) {
+                     setConrol(!control);
+                     swal("Poof! Your selected file has been cancelled", {
+                        icon: "success",
+                     });
+                  } else {
+                     setConrol(false);
+                  }
+               });
+         } else {
+            swal("Your selected file is safe!");
+         }
+      });
    };
 
    return (
@@ -74,7 +95,7 @@ const MyOrders = () => {
                         </TableCell>
                         <TableCell align="right">
                            <Button
-                              onClick={() => handleDeleteOrder(orders?._id)}
+                              onClick={() => handleDelete(row?._id)}
                               variant="contained"
                            >
                               Cancel
