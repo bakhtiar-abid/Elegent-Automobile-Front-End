@@ -34,10 +34,20 @@ const Navigation = () => {
                      textDecoration: "none",
                      color: "white",
                   }}
+                  to="/home"
+               >
+                  <Button color="inherit">Home</Button>
+               </Link>
+               <Link
+                  style={{
+                     textDecoration: "none",
+                     color: "white",
+                  }}
                   to="/moreVehicles"
                >
                   <Button color="inherit">More Vehicles</Button>
                </Link>
+
                {user?.email ? (
                   <Box>
                      <NavLink

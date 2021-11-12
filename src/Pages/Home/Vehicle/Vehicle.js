@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import { makeStyles } from "@mui/styles";
+import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 
 const useStyle = makeStyles({
    vehicleHover: {
@@ -58,9 +60,13 @@ const Vehicle = ({ item }) => {
                   alignItems: "center",
                }}
             >
-               <Button variant="contained" size="small">
-                  Purchase
-               </Button>
+               <Box>
+                  <Link to={`/vehicle/${_id}`}>
+                     <Button variant="contained" size="small">
+                        Purchase
+                     </Button>
+                  </Link>
+               </Box>
             </CardActions>
          </Card>
       </Grid>
