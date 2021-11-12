@@ -12,6 +12,7 @@ import Grid from "@mui/material/Grid";
 import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
+import Navigation from "./../../Shared/Navigation/Navigation";
 
 const useStyle = makeStyles({
    vehicleHover: {
@@ -41,6 +42,7 @@ const MoreVehicles = () => {
 
    return (
       <Box>
+         <Navigation></Navigation>
          <Typography
             sx={{ fontWeight: 500, m: 2, color: "secondary.main" }}
             variant="h6"
@@ -65,6 +67,7 @@ const MoreVehicles = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  marginTop: "50px",
                }}
             >
                <CircularProgress />

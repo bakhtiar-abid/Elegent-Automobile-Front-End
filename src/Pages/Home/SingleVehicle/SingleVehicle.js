@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import OrderModal from "./../OrderModal/OrderModal";
+import Navigation from "./../../Shared/Navigation/Navigation";
 
 const SingleVehicle = () => {
    const { Id } = useParams();
@@ -28,6 +29,7 @@ const SingleVehicle = () => {
    });
    return (
       <Box>
+         <Navigation></Navigation>
          <Typography
             sx={{ fontWeight: 500, m: 2, color: "secondary.main" }}
             variant="h6"

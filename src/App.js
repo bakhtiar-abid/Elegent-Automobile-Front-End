@@ -9,20 +9,20 @@ import MoreVehicles from "./Pages/Home/MoreVehicles/MoreVehicles";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import SingleVehicle from "./Pages/Home/SingleVehicle/SingleVehicle";
 import Register from "./Pages/Login/Register/Register";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 
 function App() {
    return (
       <div className="App">
          <AuthProvider>
             <Router>
-               <Navigation></Navigation>
                <Switch>
                   {/* <PrivateRoute path="/appointment">
                      <Appointment />
                   </PrivateRoute> */}
-                  {/* <PrivateRoute path="/dashboard">
-                     <Dashboard />
-                  </PrivateRoute> */}
+                  <PrivateRoute path="/dashboard">
+                     <Dashboard></Dashboard>
+                  </PrivateRoute>
                   <Route exact path="/home">
                      <Home></Home>
                   </Route>

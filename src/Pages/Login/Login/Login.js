@@ -39,9 +39,7 @@ const Login = () => {
    return (
       <Container
          sx={{
-            boxShadow: 3,
-            margin: "100px",
-            padding: "50px",
+            overflow: "hidden",
          }}
       >
          <Grid
@@ -94,8 +92,8 @@ const Login = () => {
                </form>
                <br />
                <Button onClick={handleGoogleSignIn} variant="contained">
-                  <GoogleIcon style={{ marginRight: "px" }}></GoogleIcon> Google
-                  Sign In
+                  <GoogleIcon style={{ marginRight: "5px" }}></GoogleIcon>{" "}
+                  Google Sign In
                </Button>
             </Grid>
          </Grid>

@@ -39,9 +39,7 @@ const Register = () => {
    return (
       <Container
          sx={{
-            boxShadow: 3,
-            margin: "100px",
-            padding: "50px",
+            overflow: "hidden",
          }}
       >
          <Grid
