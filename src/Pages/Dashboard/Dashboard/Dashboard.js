@@ -16,9 +16,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 
+import Pay from "./../Pay/Pay";
+import MyOrders from "./../MyOrders/MyOrders";
+import Review from "./../Review/Review";
 import useAuth from "./../../../hooks/useAuth";
+import DashboardHome from "./../DashBoardHome/DashboardHome";
 
 const drawerWidth = 200;
 
@@ -26,7 +30,7 @@ function Dashboard(props) {
    const { window } = props;
    const [mobileOpen, setMobileOpen] = React.useState(false);
    let { path, url } = useRouteMatch();
-   const { admin } = useAuth();
+   const { admin, logout } = useAuth();
    const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
    };
@@ -38,24 +42,26 @@ function Dashboard(props) {
          {/* <Link to="/appointment">
             <Button color="inherit">Appointment</Button>
          </Link> */}
-         <Link style={{ textDecoration: "none" }} to={`${url}`}>
+         <Link to={`${url}`} style={{ textDecoration: "none" }}>
             <Button color="inherit">Dashboard</Button>
          </Link>
          <br />
-         <Link style={{ textDecoration: "none" }} to={`${url}/pay`}>
+         <Link to={`${url}/pay`} style={{ textDecoration: "none" }}>
             <Button color="inherit">Pay</Button>
          </Link>
          <br />
-         <Link style={{ textDecoration: "none" }} to={`${url}/myorders`}>
+         <Link to={`${url}/myorders`} style={{ textDecoration: "none" }}>
             <Button color="inherit">My Orders</Button>
          </Link>
          <br />
-         <Link style={{ textDecoration: "none" }} to={`${url}/review`}>
+         <Link to={`${url}/review`} style={{ textDecoration: "none" }}>
             <Button color="inherit">Review</Button>
          </Link>
          <br />
-         <Link style={{ textDecoration: "none" }} to={`${url}`}>
-            <Button color="inherit">Log Out</Button>
+         <Link to={`${url}`} style={{ textDecoration: "none" }}>
+            <Button onClick={logout} color="inherit">
+               Log Out
+            </Button>
          </Link>
          {/* {admin && (
             <Box>
@@ -155,6 +161,20 @@ function Dashboard(props) {
                <AdminRoute path={`${path}/addDoctor`}>
                   <AddDoctor></AddDoctor>
                </AdminRoute> */}
+
+               <Route exact path={path}>
+                  <DashboardHome></DashboardHome>
+               </Route>
+
+               <Route exact path={`${path}/pay`}>
+                  <Pay></Pay>
+               </Route>
+               <Route exact path={`${path}/myorders`}>
+                  <MyOrders></MyOrders>
+               </Route>
+               <Route exact path={`${path}/review`}>
+                  <Review></Review>
+               </Route>
             </Switch>
          </Box>
       </Box>

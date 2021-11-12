@@ -1,45 +1,66 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import Calendar from "../../Shared/Calendar/Calendar";
-import Appointments from "../Appointments/Appointments";
+
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 
 const DashboardHome = () => {
-   const [date, setDate] = React.useState(new Date());
    return (
       <Grid container spacing={2}>
-         <Grid item xs={12} sm={5}>
-            <Calendar date={date} setDate={setDate}></Calendar>
+         <Grid item xs={12} md={6} sm={12}>
+            <Typography
+               sx={{ bgcolor: "warning.main", color: "white" }}
+               variant="h4"
+               component="div"
+               gutterBottom
+               padding="6rem"
+            >
+               <Box>
+                  <Link
+                     style={{ textDecoration: "none" }}
+                     to="/dashboard/myorders"
+                  >
+                     <h2 style={{ color: "white" }}>My Orders</h2>
+                  </Link>
+               </Box>
+            </Typography>
          </Grid>
-         <Grid item xs={12} sm={7}>
-            <Appointments date={date}></Appointments>
+         <Grid item xs={12} md={6} sm={12}>
+            <Typography
+               sx={{ bgcolor: "primary.main", color: "white" }}
+               variant="h4"
+               component="div"
+               gutterBottom
+               padding="6rem"
+            >
+               <Box>
+                  <Link style={{ textDecoration: "none" }} to="/dashboard/pay">
+                     <h2 style={{ color: "white" }}>Payment</h2>
+                  </Link>
+               </Box>
+            </Typography>
+         </Grid>
+         <Grid item xs={12} md={12} sm={12}>
+            <Typography
+               sx={{ bgcolor: "success.light", color: "white" }}
+               variant="h4"
+               component="div"
+               gutterBottom
+               padding="6rem"
+            >
+               <Box>
+                  <Link
+                     style={{ textDecoration: "none" }}
+                     to="/dashboard/review"
+                  >
+                     <h2 style={{ color: "white" }}>Review</h2>
+                  </Link>
+               </Box>
+            </Typography>
          </Grid>
       </Grid>
    );
 };
 
 export default DashboardHome;
-
-<Box style={{ marginTop: "100px" }}>
-   <Link style={{ textDecoration: "none" }} to={`${url}`}>
-      <Button color="inherit">Dashboard</Button>
-   </Link>
-   <br />
-   <Link style={{ textDecoration: "none" }} to={`${url}/pay`}>
-      <Button color="inherit">Pay</Button>
-   </Link>
-   <br />
-   <Link style={{ textDecoration: "none" }} to={`${url}/myorders`}>
-      <Button color="inherit">My Orders</Button>
-   </Link>
-   <br />
-   <Link style={{ textDecoration: "none" }} to={`${url}/review`}>
-      <Button color="inherit">Review</Button>
-   </Link>
-   <br />
-
-   <Link style={{ textDecoration: "none" }} to={`${url}`}>
-      <Button onClick={logout} color="inherit">
-         Logout
-      </Button>
-   </Link>
-</Box>;

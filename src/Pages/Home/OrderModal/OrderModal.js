@@ -47,7 +47,7 @@ const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
          vehiclePrice: price,
       };
       // send to the server
-      fetch("http://localhost:5000/placeorder", {
+      fetch("https://obscure-refuge-59992.herokuapp.com/placeorder", {
          method: "POST",
          headers: {
             "content-type": "application/json",
