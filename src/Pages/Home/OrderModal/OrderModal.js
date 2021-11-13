@@ -21,7 +21,7 @@ const style = {
    p: 4,
 };
 
-const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
+const OrderModal = ({ openOrder, handleOrderClose, singleItem }) => {
    const { name, price } = singleItem;
    const { user } = useAuth();
    const initialInfo = {
@@ -41,7 +41,7 @@ const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
 
    const handleBookingSubmit = (e) => {
       // collect data
-      const appointment = {
+      const orderData = {
          ...orderInfo,
          vehicleName: name,
          vehiclePrice: price,
@@ -52,7 +52,7 @@ const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
          headers: {
             "content-type": "application/json",
          },
-         body: JSON.stringify(appointment),
+         body: JSON.stringify(orderData),
       })
          .then((res) => res.json())
          .then((data) => {
@@ -62,7 +62,7 @@ const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
                   "You have sucessfully ordered your plan!",
                   "success"
                );
-               handleBookingClose();
+               handleOrderClose();
             }
          });
 
@@ -73,15 +73,15 @@ const OrderModal = ({ openBooking, handleBookingClose, singleItem }) => {
       <Modal
          aria-labelledby="transition-modal-title"
          aria-describedby="transition-modal-description"
-         open={openBooking}
-         onClose={handleBookingClose}
+         open={openOrder}
+         onClose={handleOrderClose}
          closeAfterTransition
          BackdropComponent={Backdrop}
          BackdropProps={{
             timeout: 500,
          }}
       >
-         <Fade in={openBooking}>
+         <Fade in={openOrder}>
             <Box sx={style}>
                <Typography
                   id="transition-modal-title"

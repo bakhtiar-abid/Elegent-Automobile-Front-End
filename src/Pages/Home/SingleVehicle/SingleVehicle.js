@@ -14,9 +14,9 @@ import Navigation from "./../../Shared/Navigation/Navigation";
 
 const SingleVehicle = () => {
    const { Id } = useParams();
-   const [openBooking, setBookingOpen] = React.useState(false);
-   const handleBookingOpen = () => setBookingOpen(true);
-   const handleBookingClose = () => setBookingOpen(false);
+   const [openOrder, setopenOrder] = React.useState(false);
+   const handleOrderOpen = () => setopenOrder(true);
+   const handleOrderClose = () => setopenOrder(false);
 
    const [singleItem, setSingleItem] = useState([]);
 
@@ -97,7 +97,7 @@ const SingleVehicle = () => {
                      <Button
                         variant="contained"
                         size="small"
-                        onClick={handleBookingOpen}
+                        onClick={handleOrderOpen}
                      >
                         Place Order
                      </Button>
@@ -106,8 +106,8 @@ const SingleVehicle = () => {
             </Card>
          </Grid>
          <OrderModal
-            openBooking={openBooking}
-            handleBookingClose={handleBookingClose}
+            openOrder={openOrder}
+            handleOrderClose={handleOrderClose}
             singleItem={singleItem}
          ></OrderModal>
       </Box>

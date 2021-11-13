@@ -39,9 +39,9 @@ function Dashboard(props) {
       <div>
          <Toolbar />
          <Divider />
-         {/* <Link to="/appointment">
-            <Button color="inherit">Appointment</Button>
-         </Link> */}
+         <Link style={{ textDecoration: "none" }} to="/moreVehicles">
+            <Button color="inherit">Explore Vehicles</Button>
+         </Link>
          <Link to={`${url}`} style={{ textDecoration: "none" }}>
             <Button color="inherit">Dashboard</Button>
          </Link>
