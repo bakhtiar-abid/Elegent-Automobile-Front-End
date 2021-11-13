@@ -45,10 +45,12 @@ const OrderModal = ({ openOrder, handleOrderClose, singleItem }) => {
          ...orderInfo,
          vehicleName: name,
          vehiclePrice: price,
+         status: "pending",
       };
       // send to the server
       fetch("https://obscure-refuge-59992.herokuapp.com/placeorder", {
          method: "POST",
+
          headers: {
             "content-type": "application/json",
          },

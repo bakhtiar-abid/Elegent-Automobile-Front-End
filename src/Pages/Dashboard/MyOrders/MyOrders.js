@@ -76,6 +76,7 @@ const MyOrders = () => {
                      <TableCell align="right">Address</TableCell>
                      <TableCell align="right">Vehicle Name</TableCell>
                      <TableCell align="right">Vehicle Price</TableCell>
+                     <TableCell align="right">Status</TableCell>
                      <TableCell align="right">Action</TableCell>
                   </TableRow>
                </TableHead>
@@ -96,6 +97,7 @@ const MyOrders = () => {
                         <TableCell align="right">
                            $ {row.vehiclePrice}
                         </TableCell>
+                        <TableCell align="right">{row.status}</TableCell>
                         <TableCell align="right">
                            <Button
                               onClick={() => handleDelete(row?._id)}
