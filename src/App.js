@@ -10,6 +10,7 @@ import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import SingleVehicle from "./Pages/Home/SingleVehicle/SingleVehicle";
 import Register from "./Pages/Login/Register/Register";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import Footer from "./Pages/Shared/Footer/Footer";
 
 function App() {
    return (
@@ -43,6 +44,7 @@ function App() {
                      <Home />
                   </Route>
                </Switch>
+               <Footer></Footer>
             </Router>
          </AuthProvider>
       </div>
