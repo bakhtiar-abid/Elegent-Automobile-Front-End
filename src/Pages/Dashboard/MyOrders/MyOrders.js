@@ -35,13 +35,16 @@ const MyOrders = () => {
          dangerMode: true,
       }).then((willDelete) => {
          if (willDelete) {
-            fetch(`http://localhost:5000/deleorder/${id}`, {
-               method: "DELETE",
-               headers: {
-                  authorization: `Bearer ${token}`,
-                  "content-type": "application/json",
-               },
-            })
+            fetch(
+               `https://obscure-refuge-59992.herokuapp.com/deleorder/${id}`,
+               {
+                  method: "DELETE",
+                  headers: {
+                     authorization: `Bearer ${token}`,
+                     "content-type": "application/json",
+                  },
+               }
+            )
                .then((res) => res.json())
                .then((data) => {
                   if (data.deletedCount) {
