@@ -25,7 +25,7 @@ import ManageAllOrders from "./../ManageAllOrders/ManageAllOrders";
 
 import ManageProducts from "./../ManageProducts/ManageProducts";
 
-import AddAProduct from "./../AddAProduct/AddAProduct";
+import AddAVehicle from "./../AddAVehicle/AddAVehicle";
 
 const drawerWidth = 200;
 
@@ -180,7 +180,7 @@ function Dashboard(props) {
                   <ManageAllOrders></ManageAllOrders>
                </AdminRoute>
                <AdminRoute path={`${path}/addproduct`}>
-                  <AddAProduct></AddAProduct>
+                  <AddAVehicle></AddAVehicle>
                </AdminRoute>
                <AdminRoute path={`${path}/makeAdmin`}>
                   <MakeAdmin></MakeAdmin>
