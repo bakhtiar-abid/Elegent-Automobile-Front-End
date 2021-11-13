@@ -6,12 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -22,9 +16,16 @@ import Pay from "./../Pay/Pay";
 import MyOrders from "./../MyOrders/MyOrders";
 import Review from "./../Review/Review";
 import useAuth from "./../../../hooks/useAuth";
-import DashboardHome from "./../DashBoardHome/DashboardHome";
+
 import AdminRoute from "./../../Login/AdminRoute/AdminRoute";
 import MakeAdmin from "./../MakeAdmin/MakeAdmin";
+import DashboardHomeUser from "./../DashBoardHomeUser/DashboardHomeUser";
+import DashBoardHomeAdmin from "./../DashBoardHomeAdmin/DashBoardHomeAdmin";
+import ManageAllOrders from "./../ManageAllOrders/ManageAllOrders";
+
+import ManageProducts from "./../ManageProducts/ManageProducts";
+
+import AddAProduct from "./../AddAProduct/AddAProduct";
 
 const drawerWidth = 200;
 
@@ -76,9 +77,6 @@ function Dashboard(props) {
                   <Button color="inherit">Explore Vehicles</Button>
                </Link>
 
-               <Link to={`${url}`} style={{ textDecoration: "none" }}>
-                  <Button color="inherit">Dashboard</Button>
-               </Link>
                <br />
                <Link to={`${url}/pay`} style={{ textDecoration: "none" }}>
                   <Button color="inherit">Pay</Button>
@@ -99,17 +97,6 @@ function Dashboard(props) {
                </Link>
             </Box>
          )}
-
-         {/* {admin && (
-            <Box>
-               <Link to={`${url}/makeAdmin`}>
-                  <Button color="inherit">Make Admin</Button>
-               </Link>
-               <Link to={`${url}/addDoctor`}>
-                  <Button color="inherit">Add Doctor</Button>
-               </Link>
-            </Box>
-         )} */}
       </div>
    );
 
@@ -189,24 +176,29 @@ function Dashboard(props) {
             <Toolbar />
 
             <Switch>
-               {/* <Route exact path={path}>
-                  <DashboardHome></DashboardHome>
-               </Route>
+               <AdminRoute path={`${path}/manageAllOrders`}>
+                  <ManageAllOrders></ManageAllOrders>
+               </AdminRoute>
+               <AdminRoute path={`${path}/addproduct`}>
+                  <AddAProduct></AddAProduct>
+               </AdminRoute>
                <AdminRoute path={`${path}/makeAdmin`}>
                   <MakeAdmin></MakeAdmin>
                </AdminRoute>
-               <AdminRoute path={`${path}/addDoctor`}>
-                  <AddDoctor></AddDoctor>
-               </AdminRoute> */}
+               <AdminRoute path={`${path}/manageProducts`}>
+                  <ManageProducts></ManageProducts>
+               </AdminRoute>
 
                <Route exact path={`${path}`}>
                   {admin ? (
                      <Box>
                         {" "}
-                        <h1>hello</h1>{" "}
+                        <DashBoardHomeAdmin></DashBoardHomeAdmin>
                      </Box>
                   ) : (
-                     <DashboardHome></DashboardHome>
+                     <Box>
+                        <DashboardHomeUser></DashboardHomeUser>
+                     </Box>
                   )}
                </Route>
 

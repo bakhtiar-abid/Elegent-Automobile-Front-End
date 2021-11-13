@@ -5,13 +5,13 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 
-const DashboardHome = () => {
+const DashboardHomeUser = () => {
    return (
       <Grid container spacing={2}>
          <Grid item xs={12} md={6} sm={12}>
             <Typography
                sx={{ bgcolor: "warning.main", color: "white" }}
-               variant="h4"
+               variant="h6"
                component="div"
                gutterBottom
                padding="6rem"
@@ -29,7 +29,7 @@ const DashboardHome = () => {
          <Grid item xs={12} md={6} sm={12}>
             <Typography
                sx={{ bgcolor: "primary.main", color: "white" }}
-               variant="h4"
+               variant="h6"
                component="div"
                gutterBottom
                padding="6rem"
@@ -44,7 +44,7 @@ const DashboardHome = () => {
          <Grid item xs={12} md={12} sm={12}>
             <Typography
                sx={{ bgcolor: "success.light", color: "white" }}
-               variant="h4"
+               variant="h5"
                component="div"
                gutterBottom
                padding="6rem"
@@ -63,4 +63,4 @@ const DashboardHome = () => {
    );
 };
 
-export default DashboardHome;
+export default DashboardHomeUser;
