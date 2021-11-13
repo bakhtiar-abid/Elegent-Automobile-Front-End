@@ -18,7 +18,7 @@ const useStyle = makeStyles({
    socialIcon: {
       color: "white !important",
       border: "1px solid white !important",
-      margin: "20px -150px 10px -150px !important",
+      margin: "20px 10px 10px 0px !important",
 
       "&:hover": {
          background: "black !important",
@@ -29,7 +29,7 @@ const useStyle = makeStyles({
 const Footer = () => {
    const { socialIcon } = useStyle();
    return (
-      <footer style={{ backgroundColor: "#343434" }}>
+      <footer style={{ backgroundColor: "#000000" }}>
          <Container>
             <Grid container spacing={3} sx={{ my: 3 }}>
                <Grid item xs={12} sm={12} md={6} lg={4}>
