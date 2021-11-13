@@ -69,7 +69,7 @@ const useFirebase = () => {
       signInWithPopup(auth, googleProvider)
          .then((result) => {
             const user = result.user;
-            // saveUser(user.email, user.displayName, "PUT");
+            saveUser(user?.email, user?.displayName, "PUT");
             setAuthError("");
             const destination = location?.state?.from || "/";
             history.replace(destination);
@@ -97,7 +97,7 @@ const useFirebase = () => {
    }, [auth]);
 
    useEffect(() => {
-      fetch(`https://stark-caverns-04377.herokuapp.com/users/${user.email}`)
+      fetch(`https://obscure-refuge-59992.herokuapp.com/users/${user.email}`)
          .then((res) => res.json())
          .then((data) => setAdmin(data.admin));
    }, [user.email]);

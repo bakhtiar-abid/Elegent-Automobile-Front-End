@@ -23,6 +23,8 @@ import MyOrders from "./../MyOrders/MyOrders";
 import Review from "./../Review/Review";
 import useAuth from "./../../../hooks/useAuth";
 import DashboardHome from "./../DashBoardHome/DashboardHome";
+import AdminRoute from "./../../Login/AdminRoute/AdminRoute";
+import MakeAdmin from "./../MakeAdmin/MakeAdmin";
 
 const drawerWidth = 200;
 
@@ -39,30 +41,65 @@ function Dashboard(props) {
       <div>
          <Toolbar />
          <Divider />
-         <Link style={{ textDecoration: "none" }} to="/moreVehicles">
-            <Button color="inherit">Explore Vehicles</Button>
-         </Link>
-         <Link to={`${url}`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">Dashboard</Button>
-         </Link>
-         <br />
-         <Link to={`${url}/pay`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">Pay</Button>
-         </Link>
-         <br />
-         <Link to={`${url}/myorders`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">My Orders</Button>
-         </Link>
-         <br />
-         <Link to={`${url}/review`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">Review</Button>
-         </Link>
-         <br />
-         <Link to={`${url}`} style={{ textDecoration: "none" }}>
-            <Button onClick={logout} color="inherit">
-               Log Out
-            </Button>
-         </Link>
+         {admin ? (
+            <Box>
+               <Link
+                  style={{ textDecoration: "none" }}
+                  to={`${url}/manageAllOrders`}
+               >
+                  <Button color="inherit">Manage All Orders</Button>
+               </Link>
+               <Link
+                  style={{ textDecoration: "none" }}
+                  to={`${url}/addproduct`}
+               >
+                  <Button color="inherit">Add A Product</Button>
+               </Link>
+               <Link style={{ textDecoration: "none" }} to={`${url}/makeAdmin`}>
+                  <Button color="inherit">Make Admin</Button>
+               </Link>
+               <Link
+                  style={{ textDecoration: "none" }}
+                  to={`${url}/manageProducts`}
+               >
+                  <Button color="inherit">Manage Products</Button>
+               </Link>
+               <Link to={`${url}`} style={{ textDecoration: "none" }}>
+                  <Button onClick={logout} color="inherit">
+                     Log Out
+                  </Button>
+               </Link>
+            </Box>
+         ) : (
+            <Box>
+               <Link style={{ textDecoration: "none" }} to="/moreVehicles">
+                  <Button color="inherit">Explore Vehicles</Button>
+               </Link>
+
+               <Link to={`${url}`} style={{ textDecoration: "none" }}>
+                  <Button color="inherit">Dashboard</Button>
+               </Link>
+               <br />
+               <Link to={`${url}/pay`} style={{ textDecoration: "none" }}>
+                  <Button color="inherit">Pay</Button>
+               </Link>
+               <br />
+               <Link to={`${url}/myorders`} style={{ textDecoration: "none" }}>
+                  <Button color="inherit">My Orders</Button>
+               </Link>
+               <br />
+               <Link to={`${url}/review`} style={{ textDecoration: "none" }}>
+                  <Button color="inherit">Review</Button>
+               </Link>
+               <br />
+               <Link to={`${url}`} style={{ textDecoration: "none" }}>
+                  <Button onClick={logout} color="inherit">
+                     Log Out
+                  </Button>
+               </Link>
+            </Box>
+         )}
+
          {/* {admin && (
             <Box>
                <Link to={`${url}/makeAdmin`}>
@@ -162,8 +199,15 @@ function Dashboard(props) {
                   <AddDoctor></AddDoctor>
                </AdminRoute> */}
 
-               <Route exact path={path}>
-                  <DashboardHome></DashboardHome>
+               <Route exact path={`${path}`}>
+                  {admin ? (
+                     <Box>
+                        {" "}
+                        <h1>hello</h1>{" "}
+                     </Box>
+                  ) : (
+                     <DashboardHome></DashboardHome>
+                  )}
                </Route>
 
                <Route exact path={`${path}/pay`}>
@@ -175,6 +219,9 @@ function Dashboard(props) {
                <Route exact path={`${path}/review`}>
                   <Review></Review>
                </Route>
+               <AdminRoute path={`${path}/makeAdmin`}>
+                  <MakeAdmin></MakeAdmin>
+               </AdminRoute>
             </Switch>
          </Box>
       </Box>

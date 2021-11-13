@@ -48,6 +48,7 @@ const Review = () => {
                   "You have sucessfully reviewed your item!",
                   "success"
                );
+               setreviewInfo({});
             }
          });
 
