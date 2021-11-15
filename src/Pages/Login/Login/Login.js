@@ -42,69 +42,81 @@ const Login = () => {
    return (
       <Box>
          <Navigation></Navigation>
-         <Container
-            sx={{
-               overflow: "hidden",
-            }}
+         <div
+            data-aos="fade-right"
+            data-aos-anchor-placement="top-center"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
          >
-            <Grid
-               container
-               spacing={2}
+            <Container
                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  overflow: "hidden",
                }}
             >
-               <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-                  <Typography variant="body1" gutterBottom>
-                     Login
-                  </Typography>
-                  <form onSubmit={handleLoginSubmit}>
-                     <TextField
-                        sx={{ width: "75%", m: 1 }}
-                        id="standard-basic"
-                        label="Your Email"
-                        name="email"
-                        onChange={handleOnChange}
-                        variant="standard"
-                     />
-                     <TextField
-                        sx={{ width: "75%", m: 1 }}
-                        id="standard-basic"
-                        label="Your Password"
-                        type="password"
-                        name="password"
-                        onChange={handleOnChange}
-                        variant="standard"
-                     />
-
-                     <Button
-                        sx={{ width: "75%", m: 1 }}
-                        type="submit"
-                        variant="contained"
-                     >
+               <Grid
+                  container
+                  spacing={2}
+                  sx={{
+                     display: "flex",
+                     justifyContent: "center",
+                     alignItems: "center",
+                  }}
+               >
+                  <Grid item sx={{ mt: 8 }} xs={12} md={6}>
+                     <Typography variant="body1" gutterBottom>
                         Login
-                     </Button>
-                     <NavLink style={{ textDecoration: "none" }} to="/register">
-                        <Button variant="text">
-                           New User? Please Register
+                     </Typography>
+                     <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                           sx={{ width: "75%", m: 1 }}
+                           id="standard-basic"
+                           label="Your Email"
+                           name="email"
+                           onChange={handleOnChange}
+                           variant="standard"
+                        />
+                        <TextField
+                           sx={{ width: "75%", m: 1 }}
+                           id="standard-basic"
+                           label="Your Password"
+                           type="password"
+                           name="password"
+                           onChange={handleOnChange}
+                           variant="standard"
+                        />
+
+                        <Button
+                           sx={{ width: "75%", m: 1 }}
+                           type="submit"
+                           variant="contained"
+                        >
+                           Login
                         </Button>
-                     </NavLink>
-                     {isLoading && <CircularProgress />}
-                     {user?.email && (
-                        <Alert severity="success">Login successfully!</Alert>
-                     )}
-                     {authError && <Alert severity="error">{authError}</Alert>}
-                  </form>
-                  <br />
-                  <Button onClick={handleGoogleSignIn} variant="contained">
-                     <GoogleIcon style={{ marginRight: "5px" }}></GoogleIcon>{" "}
-                     Google Sign In
-                  </Button>
+                        <NavLink
+                           style={{ textDecoration: "none" }}
+                           to="/register"
+                        >
+                           <Button variant="text">
+                              New User? Please Register
+                           </Button>
+                        </NavLink>
+                        {isLoading && <CircularProgress />}
+                        {user?.email && (
+                           <Alert severity="success">Login successfully!</Alert>
+                        )}
+                        {authError && (
+                           <Alert severity="error">{authError}</Alert>
+                        )}
+                     </form>
+                     <br />
+                     <Button onClick={handleGoogleSignIn} variant="contained">
+                        <GoogleIcon style={{ marginRight: "5px" }}></GoogleIcon>{" "}
+                        Google Sign In
+                     </Button>
+                  </Grid>
                </Grid>
-            </Grid>
-         </Container>
+            </Container>
+         </div>
       </Box>
    );
 };

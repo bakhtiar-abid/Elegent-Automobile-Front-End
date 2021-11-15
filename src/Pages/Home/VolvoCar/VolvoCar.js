@@ -16,7 +16,14 @@ const VolvoCar = () => {
             <Box sx={{ flexGrow: 1 }}>
                <Grid container spacing={2}>
                   <Grid item xs={12} md={8}>
-                     <img style={{ width: "100%" }} src={volvo} alt="" />
+                     <div
+                        data-aos="fade-right"
+                        data-aos-anchor-placement="top-center"
+                        data-aos-easing="ease-in-out"
+                        data-aos-duration="3000"
+                     >
+                        <img style={{ width: "100%" }} src={volvo} alt="" />
+                     </div>
                   </Grid>
                   <Grid
                      item
@@ -29,30 +36,39 @@ const VolvoCar = () => {
                         alignItems: "center",
                      }}
                   >
-                     <Box>
-                        <Typography
-                           variant="h3"
-                           style={{ fontWeight: 500, color: "white" }}
-                           component="div"
-                           sx={{ mt: 5 }}
+                     <div
+                        data-aos="fade-left"
+                        data-aos-anchor-placement="top-center"
+                        data-aos-easing="ease-in-out"
+                        data-aos-duration="3000"
+                     >
                         >
-                           Safe. Relaxing. Good to ride in. Subtly decorated.
-                        </Typography>
-                        <Typography
-                           variant="body1"
-                           component="div"
-                           sx={{ my: 5 }}
-                           color="text.secondary"
-                           style={{ color: "white" }}
-                        >
-                           The Volvo XC60 sits right at the heart of the
-                           big-selling mid-size crossover crowd. It’s handsome
-                           and luxurious and it wraps you in a safety blanket as
-                           comprehensive as the Swedish welfare state.It’s not
-                           distracted by off-road ambitions. Neither is it
-                           wearing the pretence of track-lapping athleticism.
-                        </Typography>
-                     </Box>
+                        <Box>
+                           <Typography
+                              variant="h3"
+                              style={{ fontWeight: 500, color: "white" }}
+                              component="div"
+                              sx={{ mt: 5 }}
+                           >
+                              Safe. Relaxing. Good to ride in. Subtly decorated.
+                           </Typography>
+                           <Typography
+                              variant="body1"
+                              component="div"
+                              sx={{ my: 5 }}
+                              color="text.secondary"
+                              style={{ color: "white" }}
+                           >
+                              The Volvo XC60 sits right at the heart of the
+                              big-selling mid-size crossover crowd. It’s
+                              handsome and luxurious and it wraps you in a
+                              safety blanket as comprehensive as the Swedish
+                              welfare state.It’s not distracted by off-road
+                              ambitions. Neither is it wearing the pretence of
+                              track-lapping athleticism.
+                           </Typography>
+                        </Box>
+                     </div>
                   </Grid>
                </Grid>
             </Box>

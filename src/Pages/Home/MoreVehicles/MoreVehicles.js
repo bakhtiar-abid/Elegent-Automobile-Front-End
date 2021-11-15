@@ -96,59 +96,69 @@ const MoreVehicles = () => {
                      md={4}
                      key={moreVehicle._id}
                   >
-                     <Card
-                        sx={{ maxWidth: 345 }}
-                        style={{
-                           padding: "20px",
-                           borderRadius: "10px",
-                        }}
+                     <div
+                        data-aos="fade-up"
+                        data-aos-anchor-placement="top-center"
+                        data-aos-easing="ease-in-out"
+                        data-aos-duration="1000"
                      >
-                        <CardMedia
-                           className={vehicleHover}
-                           component="img"
-                           width="100%"
-                           height="100%"
-                           image={moreVehicle?.img}
-                           alt="green iguana"
-                        />
-                        <CardContent>
-                           <Typography
-                              gutterBottom
-                              variant="h5"
-                              component="div"
-                           >
-                              Name: {moreVehicle?.name}
-                           </Typography>
-                           <Typography variant="body2" color="text.secondary">
-                              Overview: {moreVehicle?.overview.slice(0, 150)}
-                           </Typography>
-                           <Typography
-                              variant="h6"
-                              component="div"
-                              style={{ marginTop: "5px" }}
-                           >
-                              Price: ${moreVehicle?.price}
-                           </Typography>
-                        </CardContent>
-                        <CardActions
+                        <Card
+                           sx={{ maxWidth: 345 }}
                            style={{
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
+                              padding: "20px",
+                              borderRadius: "10px",
                            }}
                         >
-                           <Box>
-                              <Link
-                                 style={{ textDecoration: "none" }}
-                                 to={`/vehicle/${moreVehicle?._id}`}
+                           <CardMedia
+                              className={vehicleHover}
+                              component="img"
+                              width="100%"
+                              height="100%"
+                              image={moreVehicle?.img}
+                              alt="green iguana"
+                           />
+                           <CardContent>
+                              <Typography
+                                 gutterBottom
+                                 variant="h5"
+                                 component="div"
                               >
-                                 <Button variant="contained" size="small">
-                                    Order By Now
-                                 </Button>
-                              </Link>
-                           </Box>
-                        </CardActions>
-                     </Card>
+                                 Name: {moreVehicle?.name}
+                              </Typography>
+                              <Typography
+                                 variant="body2"
+                                 color="text.secondary"
+                              >
+                                 Overview: {moreVehicle?.overview.slice(0, 150)}
+                              </Typography>
+                              <Typography
+                                 variant="h6"
+                                 component="div"
+                                 style={{ marginTop: "5px" }}
+                              >
+                                 Price: ${moreVehicle?.price}
+                              </Typography>
+                           </CardContent>
+                           <CardActions
+                              style={{
+                                 display: "flex",
+                                 justifyContent: "center",
+                                 alignItems: "center",
+                              }}
+                           >
+                              <Box>
+                                 <Link
+                                    style={{ textDecoration: "none" }}
+                                    to={`/vehicle/${moreVehicle?._id}`}
+                                 >
+                                    <Button variant="contained" size="small">
+                                       Order By Now
+                                    </Button>
+                                 </Link>
+                              </Box>
+                           </CardActions>
+                        </Card>
+                     </div>
                   </Grid>
                );
             })}

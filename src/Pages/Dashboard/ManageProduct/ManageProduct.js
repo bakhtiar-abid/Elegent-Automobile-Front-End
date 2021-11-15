@@ -8,12 +8,12 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import swal from "sweetalert";
 import { useState } from "react";
+import { useEffect } from "react";
 
 import Box from "@mui/material/Box";
 
 const ManageProduct = ({ item }) => {
    const { name, overview, img, price, _id } = item;
-   const [control, setConrol] = useState(false);
 
    const handleDelete = (id) => {
       swal({
@@ -33,13 +33,13 @@ const ManageProduct = ({ item }) => {
                .then((res) => res.json())
                .then((data) => {
                   if (data.deletedCount) {
-                     setConrol(!control);
+                     setControl(!control);
 
                      swal("Poof! Your selected file has been cancelled", {
                         icon: "success",
                      });
                   } else {
-                     setConrol(false);
+                     setControl(false);
                   }
                });
          } else {
@@ -48,6 +48,11 @@ const ManageProduct = ({ item }) => {
       });
    };
    return (
+      // <Grid
+      //    container
+      //    spacing={{ xs: 2, md: 3 }}
+      //    columns={{ xs: 4, sm: 8, md: 12 }}
+      // >
       <Grid item xs={4} sm={4} md={4}>
          <Card
             sx={{ maxWidth: 345 }}
@@ -65,7 +70,7 @@ const ManageProduct = ({ item }) => {
                   Name: {name}
                </Typography>
                <Typography variant="body2" color="text.secondary">
-                  Overview: {overview.slice(0, 150)}
+                  Overview: {overview?.slice(0, 150)}
                </Typography>
                <Typography
                   variant="h6"
@@ -94,6 +99,7 @@ const ManageProduct = ({ item }) => {
             </CardActions>
          </Card>
       </Grid>
+      // </Grid>
    );
 };
 

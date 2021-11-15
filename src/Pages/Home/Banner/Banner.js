@@ -37,27 +37,34 @@ const Banner = () => {
                md={6}
             >
                <Box>
-                  <Typography
-                     style={{
-                        color: "white",
-                        fontSize: "3rem",
-                        fontWeight: "600",
-                     }}
-                     variant="h3"
+                  <div
+                     data-aos="fade-up"
+                     data-aos-easing="ease-in-out"
+                     data-aos-duration="1000"
                   >
-                     ELEGENT AUTOMOBILE
-                  </Typography>
-                  <Typography
-                     variant="h6"
-                     sx={{
-                        my: 3,
-                        fontSize: "18px",
-                        fontWeight: 200,
-                        color: "whitesmoke",
-                     }}
-                  >
-                     A safe and reliable way to get your car.
-                  </Typography>
+                     <Typography
+                        style={{
+                           color: "white",
+                           fontSize: "3rem",
+                           fontWeight: "600",
+                        }}
+                        variant="h3"
+                     >
+                        ELEGENT AUTOMOBILE
+                     </Typography>
+                     <Typography
+                        variant="h6"
+                        sx={{
+                           my: 3,
+                           fontSize: "18px",
+                           fontWeight: 200,
+                           color: "whitesmoke",
+                        }}
+                     >
+                        A safe and reliable way to get your car.
+                     </Typography>
+                  </div>
+
                   {/* <Button
                      variant="contained"
                      style={{ backgroundColor: "#5CE7ED" }}
