@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
 import { Container } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import Review from "./../Review/Review";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import image1 from "../../../images/people-1.png";
-import image2 from "../../../images/people-2.png";
-import image3 from "../../../images/people-3.png";
-import Rating from "@mui/material/Rating";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
+import Review from "./../Review/Review";
 
 const Reviews = () => {
    const [reviews, setReviews] = useState([]);
@@ -18,7 +15,7 @@ const Reviews = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      fetch("https://obscure-refuge-59992.herokuapp.com/review/")
+      fetch("https://backend-elegent-server.onrender.com/review/")
          .then((res) => res.json())
          .then((data) => {
             setReviews(data);

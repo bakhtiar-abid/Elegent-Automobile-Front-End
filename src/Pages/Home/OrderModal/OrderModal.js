@@ -1,13 +1,13 @@
-import React, { useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import useAuth from "./../../../hooks/useAuth";
+import Fade from "@mui/material/Fade";
+import Modal from "@mui/material/Modal";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import React, { useState } from "react";
 import swal from "sweetalert";
+import useAuth from "./../../../hooks/useAuth";
 
 const style = {
    position: "absolute",
@@ -48,7 +48,7 @@ const OrderModal = ({ openOrder, handleOrderClose, singleItem }) => {
          status: "pending",
       };
       // send to the server
-      fetch("https://obscure-refuge-59992.herokuapp.com/placeorder", {
+      fetch("https://backend-elegent-server.onrender.com/placeorder", {
          method: "POST",
 
          headers: {

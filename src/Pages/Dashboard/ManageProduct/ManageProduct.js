@@ -1,14 +1,12 @@
-import React from "react";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import React from "react";
 import swal from "sweetalert";
-import { useState } from "react";
-import { useEffect } from "react";
 
 import Box from "@mui/material/Box";
 
@@ -24,7 +22,7 @@ const ManageProduct = ({ item }) => {
          dangerMode: true,
       }).then((willDelete) => {
          if (willDelete) {
-            fetch(`https://obscure-refuge-59992.herokuapp.com/vehicles/${id}`, {
+            fetch(`https://backend-elegent-server.onrender.com/vehicles/${id}`, {
                method: "DELETE",
                headers: {
                   "content-type": "application/json",

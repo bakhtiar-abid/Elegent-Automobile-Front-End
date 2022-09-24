@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Rating from "@mui/material/Rating";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+import TextField from "@mui/material/TextField";
+import React, { useState } from "react";
 
 import Box from "@mui/material/Box";
 import swal from "sweetalert";
@@ -33,7 +32,7 @@ const Review = () => {
       };
       console.log(reviewData);
       // send to the server
-      fetch("https://obscure-refuge-59992.herokuapp.com/review", {
+      fetch("https://backend-elegent-server.onrender.com/review", {
          method: "POST",
          headers: {
             "content-type": "application/json",

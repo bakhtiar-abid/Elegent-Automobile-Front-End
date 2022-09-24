@@ -1,17 +1,15 @@
-import React from "react";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { useEffect } from "react";
-import { useState } from "react";
-import Grid from "@mui/material/Grid";
-import { makeStyles } from "@mui/styles";
-import { Link } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "./../../Shared/Navigation/Navigation";
 
 const useStyle = makeStyles({
@@ -32,7 +30,7 @@ const MoreVehicles = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      fetch("https://obscure-refuge-59992.herokuapp.com/vehicles/")
+      fetch("https://backend-elegent-server.onrender.com/vehicles/")
          .then((res) => res.json())
          .then((data) => {
             setmoreVehicles(data);

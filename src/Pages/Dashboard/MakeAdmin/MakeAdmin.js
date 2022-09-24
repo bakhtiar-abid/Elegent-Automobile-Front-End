@@ -1,4 +1,4 @@
-import { Button, TextField, Alert } from "@mui/material";
+import { Alert, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import useAuth from "./../../../hooks/useAuth";
 
@@ -12,7 +12,7 @@ const MakeAdmin = () => {
    };
    const handleAdminSubmit = (e) => {
       const user = { email };
-      fetch("https://obscure-refuge-59992.herokuapp.com/users/admin", {
+      fetch("https://backend-elegent-server.onrender.com/users/admin", {
          method: "PUT",
          headers: {
             authorization: `Bearer ${token}`,

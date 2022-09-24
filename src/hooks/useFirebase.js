@@ -1,16 +1,8 @@
-import initializeFirebase from "./../Pages/Login/Login/Firebase/firebase.init";
-import { useState, useEffect } from "react";
 import {
-   getAuth,
-   createUserWithEmailAndPassword,
-   signInWithEmailAndPassword,
-   onAuthStateChanged,
-   GoogleAuthProvider,
-   signInWithPopup,
-   updateProfile,
-   getIdToken,
-   signOut,
+    createUserWithEmailAndPassword, getAuth, getIdToken, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from "firebase/auth";
+import { useEffect, useState } from "react";
+import initializeFirebase from "./../Pages/Login/Login/Firebase/firebase.init";
 
 // initialize firebase app
 initializeFirebase();
@@ -97,7 +89,7 @@ const useFirebase = () => {
    }, [auth]);
 
    useEffect(() => {
-      fetch(`https://obscure-refuge-59992.herokuapp.com/users/${user.email}`)
+      fetch(`https://backend-elegent-server.onrender.com/users/${user.email}`)
          .then((res) => res.json())
          .then((data) => setAdmin(data.admin));
    }, [user.email]);
@@ -116,7 +108,7 @@ const useFirebase = () => {
 
    const saveUser = (email, displayName, method) => {
       const user = { email, displayName };
-      fetch("https://obscure-refuge-59992.herokuapp.com/users", {
+      fetch("https://backend-elegent-server.onrender.com/users", {
          method: method,
          headers: {
             "content-type": "application/json",

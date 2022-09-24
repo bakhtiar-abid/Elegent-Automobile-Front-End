@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import React, { useState } from "react";
 
+import Box from "@mui/material/Box";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import swal from "sweetalert";
-import Box from "@mui/material/Box";
 
 const AddAVehicle = () => {
    const [vehicleInfo, setvehicleInfo] = useState({});
@@ -23,7 +23,7 @@ const AddAVehicle = () => {
          ...vehicleInfo,
       };
       // send to the server
-      fetch("https://obscure-refuge-59992.herokuapp.com/vehicles", {
+      fetch("https://backend-elegent-server.onrender.com/vehicles", {
          method: "POST",
          headers: {
             "content-type": "application/json",

@@ -1,10 +1,10 @@
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import React, { useState, useEffect } from "react";
-import Vehicle from "./../Vehicle/Vehicle";
+import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
+import Vehicle from "./../Vehicle/Vehicle";
 
 const Vehicles = () => {
    const [vehicles, setVehicles] = useState([]);
@@ -12,7 +12,7 @@ const Vehicles = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      fetch("https://obscure-refuge-59992.herokuapp.com/vehicles/")
+      fetch("https://backend-elegent-server.onrender.com/vehicles/")
          .then((res) => res.json())
          .then((data) => {
             setVehicles(data);

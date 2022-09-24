@@ -1,16 +1,15 @@
-import React from "react";
-import { useParams } from "react-router";
-import { useState, useEffect } from "react";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import OrderModal from "./../OrderModal/OrderModal";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import Navigation from "./../../Shared/Navigation/Navigation";
+import OrderModal from "./../OrderModal/OrderModal";
 
 const SingleVehicle = () => {
    const { Id } = useParams();
@@ -23,7 +22,7 @@ const SingleVehicle = () => {
    // const { name, price } = singleItem;
 
    useEffect(() => {
-      fetch(`https://obscure-refuge-59992.herokuapp.com/vehicles/${Id}`)
+      fetch(`https://backend-elegent-server.onrender.com/vehicles/${Id}`)
          .then((res) => res.json())
          .then((data) => setSingleItem(data));
    });

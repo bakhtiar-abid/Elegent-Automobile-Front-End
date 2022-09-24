@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import useAuth from "./../../../hooks/useAuth";
-import Button from "@mui/material/Button";
+import React, { useEffect, useState } from "react";
 import swal from "sweetalert";
+import useAuth from "./../../../hooks/useAuth";
 const ManageAllOrders = () => {
    const { token } = useAuth();
    const [orders, setOrders] = useState([]);
    const [control, setConrol] = useState(false);
 
    useEffect(() => {
-      const url = `https://obscure-refuge-59992.herokuapp.com/placeorder/`;
+      const url = `https://backend-elegent-server.onrender.com/placeorder/`;
       fetch(url, {
          headers: {
             authorization: `Bearer ${token}`,
@@ -26,7 +26,7 @@ const ManageAllOrders = () => {
    }, [control]);
 
    const handleUpdate = (id) => {
-      const url = `https://obscure-refuge-59992.herokuapp.com/placeorder/${id}`;
+      const url = `https://backend-elegent-server.onrender.com/placeorder/${id}`;
 
       fetch(url, {
          method: "PUT",
@@ -56,7 +56,7 @@ const ManageAllOrders = () => {
       }).then((willDelete) => {
          if (willDelete) {
             fetch(
-               `https://obscure-refuge-59992.herokuapp.com/deleorder/${id}`,
+               `https://backend-elegent-server.onrender.com/deleorder/${id}`,
                {
                   method: "DELETE",
                   headers: {

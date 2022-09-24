@@ -1,14 +1,14 @@
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import React, { useState, useEffect } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import CardMedia from "@mui/material/CardMedia";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
 import swal from "sweetalert";
 
 // import ManageProduct from "./../ManageProduct/ManageProduct";
@@ -21,7 +21,7 @@ const ManageProducts = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      fetch("https://obscure-refuge-59992.herokuapp.com/vehicles/")
+      fetch("https://backend-elegent-server.onrender.com/vehicles/")
          .then((res) => res.json())
          .then((data) => {
             setVehicles(data);
@@ -37,7 +37,7 @@ const ManageProducts = () => {
          dangerMode: true,
       }).then((willDelete) => {
          if (willDelete) {
-            fetch(`https://obscure-refuge-59992.herokuapp.com/vehicles/${id}`, {
+            fetch(`https://backend-elegent-server.onrender.com/vehicles/${id}`, {
                method: "DELETE",
                headers: {
                   "content-type": "application/json",
