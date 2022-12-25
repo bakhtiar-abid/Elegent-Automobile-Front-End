@@ -12,7 +12,7 @@ const MakeAdmin = () => {
    };
    const handleAdminSubmit = (e) => {
       const user = { email };
-      fetch("https://backend-elegent-server.onrender.com/users/admin", {
+      fetch("https://elegent-automobile-backend.vercel.app/users/admin", {
          method: "PUT",
          headers: {
             authorization: `Bearer ${token}`,

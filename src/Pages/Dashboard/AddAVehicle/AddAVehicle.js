@@ -23,7 +23,7 @@ const AddAVehicle = () => {
          ...vehicleInfo,
       };
       // send to the server
-      fetch("https://backend-elegent-server.onrender.com/vehicles", {
+      fetch("https://elegent-automobile-backend.vercel.app/vehicles", {
          method: "POST",
          headers: {
             "content-type": "application/json",

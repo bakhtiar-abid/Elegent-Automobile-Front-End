@@ -48,7 +48,7 @@ const OrderModal = ({ openOrder, handleOrderClose, singleItem }) => {
          status: "pending",
       };
       // send to the server
-      fetch("https://backend-elegent-server.onrender.com/placeorder", {
+      fetch("https://elegent-automobile-backend.vercel.app/placeorder", {
          method: "POST",
 
          headers: {

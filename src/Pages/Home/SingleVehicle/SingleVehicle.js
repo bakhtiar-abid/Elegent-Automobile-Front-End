@@ -22,7 +22,7 @@ const SingleVehicle = () => {
    // const { name, price } = singleItem;
 
    useEffect(() => {
-      fetch(`https://backend-elegent-server.onrender.com/vehicles/${Id}`)
+      fetch(`https://elegent-automobile-backend.vercel.app/vehicles/${Id}`)
          .then((res) => res.json())
          .then((data) => setSingleItem(data));
    });

@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 import TextField from "@mui/material/TextField";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
 import React, { useState } from "react";
 
 import Box from "@mui/material/Box";
@@ -32,7 +32,7 @@ const Review = () => {
       };
       console.log(reviewData);
       // send to the server
-      fetch("https://backend-elegent-server.onrender.com/review", {
+      fetch("https://elegent-automobile-backend.vercel.app/review", {
          method: "POST",
          headers: {
             "content-type": "application/json",

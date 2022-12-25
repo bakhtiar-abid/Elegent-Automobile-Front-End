@@ -15,7 +15,7 @@ const ManageAllOrders = () => {
    const [control, setConrol] = useState(false);
 
    useEffect(() => {
-      const url = `https://backend-elegent-server.onrender.com/placeorder/`;
+      const url = `https://elegent-automobile-backend.vercel.app/placeorder/`;
       fetch(url, {
          headers: {
             authorization: `Bearer ${token}`,
@@ -26,7 +26,7 @@ const ManageAllOrders = () => {
    }, [control]);
 
    const handleUpdate = (id) => {
-      const url = `https://backend-elegent-server.onrender.com/placeorder/${id}`;
+      const url = `https://elegent-automobile-backend.vercel.app/placeorder/${id}`;
 
       fetch(url, {
          method: "PUT",
@@ -56,7 +56,7 @@ const ManageAllOrders = () => {
       }).then((willDelete) => {
          if (willDelete) {
             fetch(
-               `https://backend-elegent-server.onrender.com/deleorder/${id}`,
+               `https://elegent-automobile-backend.vercel.app/deleorder/${id}`,
                {
                   method: "DELETE",
                   headers: {

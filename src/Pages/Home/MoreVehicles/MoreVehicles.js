@@ -30,7 +30,7 @@ const MoreVehicles = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      fetch("https://backend-elegent-server.onrender.com/vehicles/")
+      fetch("https://elegent-automobile-backend.vercel.app/vehicles/")
          .then((res) => res.json())
          .then((data) => {
             setmoreVehicles(data);

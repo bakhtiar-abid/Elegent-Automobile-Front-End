@@ -15,7 +15,7 @@ const Reviews = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      fetch("https://backend-elegent-server.onrender.com/review/")
+      fetch("https://elegent-automobile-backend.vercel.app/review/")
          .then((res) => res.json())
          .then((data) => {
             setReviews(data);

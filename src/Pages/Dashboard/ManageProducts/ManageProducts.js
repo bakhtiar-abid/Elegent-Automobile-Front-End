@@ -21,7 +21,7 @@ const ManageProducts = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      fetch("https://backend-elegent-server.onrender.com/vehicles/")
+      fetch("https://elegent-automobile-backend.vercel.app/vehicles/")
          .then((res) => res.json())
          .then((data) => {
             setVehicles(data);
@@ -37,12 +37,15 @@ const ManageProducts = () => {
          dangerMode: true,
       }).then((willDelete) => {
          if (willDelete) {
-            fetch(`https://backend-elegent-server.onrender.com/vehicles/${id}`, {
-               method: "DELETE",
-               headers: {
-                  "content-type": "application/json",
-               },
-            })
+            fetch(
+               `https://elegent-automobile-backend.vercel.app/vehicles/${id}`,
+               {
+                  method: "DELETE",
+                  headers: {
+                     "content-type": "application/json",
+                  },
+               }
+            )
                .then((res) => res.json())
                .then((data) => {
                   if (data.deletedCount) {

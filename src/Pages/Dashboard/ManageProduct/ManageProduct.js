@@ -22,12 +22,15 @@ const ManageProduct = ({ item }) => {
          dangerMode: true,
       }).then((willDelete) => {
          if (willDelete) {
-            fetch(`https://backend-elegent-server.onrender.com/vehicles/${id}`, {
-               method: "DELETE",
-               headers: {
-                  "content-type": "application/json",
-               },
-            })
+            fetch(
+               `https://elegent-automobile-backend.vercel.app/vehicles/${id}`,
+               {
+                  method: "DELETE",
+                  headers: {
+                     "content-type": "application/json",
+                  },
+               }
+            )
                .then((res) => res.json())
                .then((data) => {
                   if (data.deletedCount) {

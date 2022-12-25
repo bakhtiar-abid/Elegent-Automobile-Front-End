@@ -1,5 +1,13 @@
 import {
-    createUserWithEmailAndPassword, getAuth, getIdToken, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
+   GoogleAuthProvider,
+   createUserWithEmailAndPassword,
+   getAuth,
+   getIdToken,
+   onAuthStateChanged,
+   signInWithEmailAndPassword,
+   signInWithPopup,
+   signOut,
+   updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "./../Pages/Login/Login/Firebase/firebase.init";
@@ -89,7 +97,7 @@ const useFirebase = () => {
    }, [auth]);
 
    useEffect(() => {
-      fetch(`https://backend-elegent-server.onrender.com/users/${user.email}`)
+      fetch(`https://elegent-automobile-backend.vercel.app/users/${user.email}`)
          .then((res) => res.json())
          .then((data) => setAdmin(data.admin));
    }, [user.email]);
@@ -108,7 +116,7 @@ const useFirebase = () => {
 
    const saveUser = (email, displayName, method) => {
       const user = { email, displayName };
-      fetch("https://backend-elegent-server.onrender.com/users", {
+      fetch("https://elegent-automobile-backend.vercel.app/users", {
          method: method,
          headers: {
             "content-type": "application/json",

@@ -16,7 +16,7 @@ const MyOrders = () => {
    const [control, setConrol] = useState(false);
 
    useEffect(() => {
-      const url = `https://backend-elegent-server.onrender.com/placeorder/${user?.email}`;
+      const url = `https://elegent-automobile-backend.vercel.app/placeorder/${user?.email}`;
       fetch(url, {
          headers: {
             authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ const MyOrders = () => {
       }).then((willDelete) => {
          if (willDelete) {
             fetch(
-               `https://backend-elegent-server.onrender.com/deleorder/${id}`,
+               `https://elegent-automobile-backend.vercel.app/deleorder/${id}`,
                {
                   method: "DELETE",
                   headers: {
